@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Interaction</title>
+    <link rel="stylesheet" href="C:\Users\13604\.vscode\cse310\sprint2-SQL-RelationalDatabases\style.css">
+</head>
+<body>
+    <h1>Student Database Interaction</h1>
+
+    <!-- Add New Student Form -->
+    <h2>Add New Student</h2>
+    <form method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="grade">Grade:</label>
+        <input type="number" id="grade" name="grade" required>
+        <button type="submit" name="add">Add Student</button>
+    </form>
+
+    <hr>
+
+    <!-- Update Student Grade Form -->
+    <h2>Update Student Grade</h2>
+    <form method="POST">
+        <label for="student_id">Student ID:</label>
+        <input type="number" id="student_id" name="student_id" required>
+        <label for="new_grade">New Grade:</label>
+        <input type="number" id="new_grade" name="new_grade" required>
+        <button type="submit" name="update">Update Grade</button>
+    </form>
+
+    <hr>
+
+    <!-- Delete Student Form -->
+    <h2>Delete Student</h2>
+    <form method="POST">
+        <label for="student_id">Student ID:</label>
+        <input type="number" id="student_id" name="student_id" required>
+        <button type="submit" name="delete">Delete Student</button>
+    </form>
+
+    <hr>
+
+    <!-- Display All Students -->
+    <h2>All Students</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.id }}</td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.grade }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
